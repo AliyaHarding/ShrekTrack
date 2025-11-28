@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root{
+    --bgColor: #F1F1F2;
+    --textColor: #000000;
+    --textColor2: #333333;
+    --primaryGreen: #A5CC6B;
+    --secondaryGreen: #6A9052;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: var(--bgColor);
+    min-height: 100vh;
+}
+
+h2{
+    font-family: "Quicksand", serif;
+    text-align: center;
+    margin: 30px;
+    font-size: 4rem;
+    border-bottom: 1px solid var(--textColor);
+}
+
+h3{
+    font-family: "Quicksand", serif;
+    text-align: center;
+    font-size: 3rem;
+    border-bottom: 1px solid var(--textColor);
+}
+
+p{
+    font-family: "Quicksand", serif;
+    font-weight: 100;
+}
+
+
+
+.eventForm label{
+    font-family: "Quicksand", serif;
+    font-weight: 100;
+    font-size: 1rem;
+}
+
+.Radio{
+    display: flex;
+    align-items: center;
+}
+
+.radioCheck{
+    margin-right: 10px;
+}
+
+.textInput{
+    margin-top: 10px;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
+
+input[type="datetime-local"] {
+    color: gray;
+}
+
+input[type="datetime-local"]::-webkit-calendar-picker-indicator {
+    filter: invert(50%);
+}
+
+.textInput::placeholder{
+    font-family: "Quicksand", serif;
+    color: gray;
+}
+
+.eventLink{
+    margin: 20px;
+    padding: 20px;
+}
+
+a{
+    text-decoration: none;
+    color: var(--textColor);
+    font-family: "Quicksand", serif;
+    margin: 30px;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.SubBtn{
+    background-color: var(--primaryGreen);
+    border: none;
+    margin: 0 20px 0 20px;
+    border-radius: 50px;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.SubBtn:active{
+    background-color: var(--secondaryGreen);
+    transform: scale(0.98);   
+}
+
+.eventData{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+}
+
+.eventDataInfo{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 15px;
+    width: 500px;
+    justify-content: center;
+}
+
+.TextSec{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+.TextSec> p> strong{
+    font-size: 1.5rem;
+}
+
+.TextSec> p{
+    font-size: 1rem;
+}
+
+.calendarLink{
+    background-color: var(--primaryGreen);
+    border-radius: 50px;
+    padding: 15px;
+    margin: 20px;
+}
+
+.calendarLink:active{
+    background-color: var(--secondaryGreen);
+    transform: scale(0.98);   
+}
+
+.calendarSec{
+    display: flex;
+    position:fixed;
+    top: 85%;
+    left: 80%;
+}
