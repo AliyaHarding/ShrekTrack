@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+:root {
+    --bgColor: #F1F1F2;
+    --textColor: #000000;
+    --primaryGreen: #A5CC6B;
+    --secondaryGreen: #6A9052;
+    --boxShadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bgColor);
+    min-height: 100vh;
+    display: flex;
+    font-family: "Quicksand", serif;
+}
+
+header {
+    background-color: var(--secondaryGreen);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    justify-content: space-between;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+header a {
+    color: var(--textColor);
+    text-decoration: none;
+    display: flex;
+    margin-top: 10px;
+    align-items: center;
+}
+
+header i {
+    margin-right: 10px;
+}
+
+header a p:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    margin: 0;
+    padding-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.Search {
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
+    padding: 30px;
+    align-items: center;
+    box-shadow: var(--boxShadow);
+}
+
+.Search h1 {
+    font-size: 2rem;
+}
+
+.searIn i {
+    margin-right: 5px;
+}
+
+.searIn input {
+    border-radius: 50px;
+    padding: 10px;
+    border: none;
+    background-color: rgb(235, 230, 230);
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+    filter: invert(0%) brightness(0%);
+}
+
+.board {
+    padding: 30px;
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 15px;
+    width: 100%;
+    height: 100%;
+    box-shadow: var(--boxShadow);
+}
+
+.title {
+    font-size: 3rem;
+    text-align: center;
+    background-color: var(--primaryGreen);
+    border-radius: 15px 15px 0 0;
+    padding: 20px;
+    color: white;
+}
+
+.CalDta {
+    padding: 15px;
+    text-align: center;
+    font-size: 2rem;
+    color: var(--secondaryGreen);
+}
+
+.view {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    gap: 10px;
+}
+
+.event {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+}
+
+.event div {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.event div:hover {
+    background-color: var(--primaryGreen);
+    transform: translateY(-5px);
+    cursor: pointer;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.controls button {
+    background-color: var(--primaryGreen);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: var(--secondaryGreen);
+    color: white;
+}
+
+.event div[style*="font-weight: bold"] {
+    background-color: var(--secondaryGreen);
+    color: white;
+    border: none;
+}
+
+.event div:empty {
+    background-color: transparent;
+    border: none;
+}
+
+@media (max-width: 768px) {
+    .view {
+        flex-direction: column;
+    }
+
+    .event {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+    .controls {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .controls button {
+        width: 100%;
+    }
+}
+
+.controls button#todayButton {
+    background-color: var(--secondaryGreen);
+    color: white;
+}
+
+.controls button#todayButton:hover {
+    background-color: var(--primaryGreen);
+}
+
+.event .today {
+    background-color: var(--secondaryGreen);
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.evTitle{
+    font-size: 1.5rem;
+}
+
+/* Ensure the events section has enough padding to avoid overlap with the FAB */
+.events {
+    margin-top: 20px;
+    padding-bottom: 80px; /* Add space for the FAB */
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 5% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 50%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Floating Action Button (FAB) */
+.fab {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--primaryGreen);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.fab:hover {
+    background-color: var(--secondaryGreen);
+    transform: scale(1.1);
+}
+
+/* Highlight selected date */
+.event .selected-date {
+    position: relative;
+}
+
+.event .selected-date::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    background-color: var(--secondaryGreen);
+    border-radius: 50%;
+}
